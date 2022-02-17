@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>深入讨论几种 ES Mapping 修改方法和局限 | My New Hugo Site</title>
+    <title>深入讨论几种 ES Mapping 修改方法和局限 | benn博客</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="前言 众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
 一个常见的错误 “发布测试环境前我竟然忘记修改 mapping 了？”
@@ -40,7 +40,7 @@ Reindex “即使对 reindex 烂熟于心，也需要留意停机时间和数据
 Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。
 ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/es-mapping/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://bennhuang.com/posts/es-mapping/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-14T12:23:53+08:00" />
 <meta property="article:modified_time" content="2022-02-14T12:23:53+08:00" />
 
@@ -77,7 +77,7 @@ ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以
   <div class="flex-l justify-between items-center center">
     <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
       
-        My New Hugo Site
+        benn博客
       
     </a>
     <div class="flex-l items-center">
@@ -325,8 +325,8 @@ POST /my-index/_update_by_query?conflicts=proceed
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
-    &copy;  My New Hugo Site 2022 
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://bennhuang.com" >
+    &copy;  benn博客 2022 
   </a>
     <div>
 <div class="ananke-socials">
