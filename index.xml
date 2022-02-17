@@ -6,14 +6,19 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Jan 2022 12:23:53 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 12:23:53 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>http://example.org/posts/my-first-post/</link>
-      <pubDate>Sat, 15 Jan 2022 12:23:53 +0800</pubDate>
+      <title>深入讨论几种 ES Mapping 修改方法和局限</title>
+      <link>http://example.org/posts/es-mapping/</link>
+      <pubDate>Mon, 14 Feb 2022 12:23:53 +0800</pubDate>
       
-      <guid>http://example.org/posts/my-first-post/</guid>
-      <description></description>
+      <guid>http://example.org/posts/es-mapping/</guid>
+      <description>前言 众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
+一个常见的错误 “发布测试环境前我竟然忘记修改 mapping 了？”
+{&amp;quot;error&amp;quot;:{&amp;quot;root_cause&amp;quot;:[{&amp;quot;type&amp;quot;:&amp;quot;illegal_argument_exception&amp;quot;,&amp;quot;reason&amp;quot;:&amp;quot;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index...... 所以我要如何快速解决这个问题呢？ 所以我要如何快速修改 mapping 中一个字段的索引类型呢？
+Reindex “即使对 reindex 烂熟于心，也需要留意停机时间和数据丢失……”
+Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。
+ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。</description>
     </item>
     
   </channel>
