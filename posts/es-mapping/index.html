@@ -40,7 +40,7 @@ Reindex “即使对 reindex 烂熟于心，也需要留意停机时间和数据
 Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。
 ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bennhuang.com/posts/es-mapping/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://www.bennhuang.com/posts/es-mapping/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-14T12:23:53+08:00" />
 <meta property="article:modified_time" content="2022-02-14T12:23:53+08:00" />
 
@@ -325,7 +325,7 @@ POST /my-index/_update_by_query?conflicts=proceed
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://bennhuang.com" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.bennhuang.com" >
     &copy;  benn博客 2022 
   </a>
     <div>
