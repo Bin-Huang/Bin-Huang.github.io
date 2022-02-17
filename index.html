@@ -1,159 +1,185 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="cn">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>benn博客</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.91.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+    <meta charset="utf-8" />
+<title>benn博客</title>
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+  
 
 
 
-    
-    
-    
-      
 
-    
-
-    
-    
-      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="benn博客" />
-      <link href="/index.xml" rel="feed" type="application/rss+xml" title="benn博客" />
-      
-    
-    
-    <meta property="og:title" content="benn博客" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.bennhuang.com/" />
-
-<meta itemprop="name" content="benn博客">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://www.bennhuang.com/index.xml"
+  title="benn博客"
+/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="benn博客"/>
 <meta name="twitter:description" content=""/>
 
-	
+
+
+<link rel="stylesheet" href="https://www.bennhuang.com/fontawesome/css/all.min.css" />
+
+
+
+
+<link
+  crossorigin="anonymous"
+  href="/css/styles.min.css"
+  integrity=""
+  rel="preload stylesheet"
+  as="style"
+/>
+
+
+
+
+<link
+  id="dark-mode-theme"
+  crossorigin="anonymous"
+  href="/css/dark.min.css"
+  integrity=""
+  rel="preload stylesheet"
+  as="style"
+/>
+
+
+<script>
+  var darkTheme = document.getElementById('dark-mode-theme')
+  var storedTheme = localStorage.getItem('dark-mode-storage')
+
+  if (storedTheme === 'dark') {
+    darkTheme.disabled = false
+  } else if (storedTheme === 'light') {
+    darkTheme.disabled = true
+  }
+</script>
+
+
+<script defer crossorigin="anonymous" src="/js/theme.js" integrity=""></script>
+
+
+<script defer crossorigin="anonymous" src="/js/instantpage.min.js" integrity=""></script><meta name="generator" content="Hugo 0.91.2" />
   </head>
-
-  <body class="ma0 avenir bg-near-white">
-
+  <body>
     
+  
+    
+  
+  
+
+
 
   <header>
-    <div class="pb3-m pb6-l bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        benn博客
-      
-    </a>
-    <div class="flex-l items-center">
-      
+    <nav class="navbar">
+  <div class="nav">
+    
 
+    <ul class="nav-links">
       
-      
-<div class="ananke-socials">
-  
-</div>
-    </div>
+    </ul>
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          benn博客
-        </h1>
-        
+    <div class="intro-header">
+      <div class="container">
+        <div class="page-heading">
+          
+            <h1>
+              benn博客
+            </h1>
+          
+          
+        </div>
       </div>
     </div>
   </header>
+  
 
-
-    <main class="pb7" role="main">
-      
- <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
     
-  </article>
-  
-  
-  
-  
-  
-  
-  
-    
-    
-
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
+  <div class="container" role="main">
+    <div class="posts-list">
       
-       
-          <h1 class="flex-none">
-            Recent Posts
-          </h1>
-        
-
-      
-
-      <section class="w-100 mw8">
         
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
+
       
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/es-mapping/" class="color-inherit dim link">
-            深入讨论几种 ES Mapping 修改方法和局限
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          前言 众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
+        <article class="post-preview">
+  <a href="https://www.bennhuang.com/posts/es-mapping/">
+    <h2 class="post-title">深入讨论几种 ES Mapping 修改方法和局限</h2>
+  </a>
+  <div class="post-entry">
+    
+      <p>前言 众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
 一个常见的错误 “发布测试环境前我竟然忘记修改 mapping 了？”
 {&quot;error&quot;:{&quot;root_cause&quot;:[{&quot;type&quot;:&quot;illegal_argument_exception&quot;,&quot;reason&quot;:&quot;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index...... 所以我要如何快速解决这个问题呢？ 所以我要如何快速修改 mapping 中一个字段的索引类型呢？
 Reindex “即使对 reindex 烂熟于心，也需要留意停机时间和数据丢失……”
 Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。
-ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。
-        </div>
-          <a href="/posts/es-mapping/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
+ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。</p>
+      <a href="https://www.bennhuang.com/posts/es-mapping/" class="post-read-more"
+        ></a
+      >
+    
+  </div>
+
+  <div class="postmeta">
+    <span class="meta-post">
+  <em class="fa fa-calendar-alt"></em
+  >&nbsp;Feb 14, 2022
+  
+</span>
+
   </div>
 </article>
 
-          </div>
-        
-      </section>
-
       
+    </div>
+    
+  </div>
 
-      </div>
+    <footer>
   
 
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.bennhuang.com" >
-    &copy;  benn博客 2022 
-  </a>
-    <div>
-<div class="ananke-socials">
+<div class="social-icons">
   
-</div></div>
+    
+    
+      
+      <a href="https://www.bennhuang.com/index.xml" name="rss">
+        <em class="fa-rss"></em>
+      </a>
+    
+  
+
+  
+</div>
+
+
+  
+  <div class="container">
+    <p class="credits copyright">
+      <a href="https://www.bennhuang.com/about">benn</a>
+      &nbsp;&copy;
+      2022
+      
+        &nbsp;/&nbsp;
+        <a href="https://www.bennhuang.com/">benn博客</a>
+      
+      &nbsp;&ndash;&nbsp;
+      <em class="fas fa-moon" id="dark-mode-toggle"></em>
+    </p>
+
+    <p class="credits theme-by">
+       <a href="https://gohugo.io">Hugo</a>&nbsp;
+      
+      <a href="https://github.com/matsuyoshi30/harbor">Harbor</a>
+    </p>
   </div>
 </footer>
 
