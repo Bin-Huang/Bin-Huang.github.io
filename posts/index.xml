@@ -9,15 +9,6 @@
     <copyright>转载请先联系作者，转发链接请随意</copyright>
     <lastBuildDate>Mon, 14 Feb 2022 12:23:53 +0800</lastBuildDate><atom:link href="https://www.bennhuang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>test</title>
-      <link>https://www.bennhuang.com/posts/123/</link>
-      <pubDate>Mon, 14 Feb 2022 12:23:53 +0800</pubDate>
-      
-      <guid>https://www.bennhuang.com/posts/123/</guid>
-      <description>2323 123 static </description>
-    </item>
-    
-    <item>
       <title>深入讨论几种 ES Mapping 修改方法和局限</title>
       <link>https://www.bennhuang.com/posts/es-mapping/</link>
       <pubDate>Mon, 14 Feb 2022 12:23:53 +0800</pubDate>
