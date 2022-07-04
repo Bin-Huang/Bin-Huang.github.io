@@ -18,7 +18,7 @@
    发现问题  我们项目中使用 Sentry 来捕获错误，顺便会附带一些上下文，比如用户 ID、请求链路、版本环境……这些上下文在排查时非常有用，然而最近却误导了我，让我在错误的方向上花了不少时间，回过头来才发现上下文是有误的。
 具体来说，原本是用户 A 触发了某个错误，Sentry 上报错误的上下文里却显示是用户 B 触发的。我进一步发现，这种 Sentry 误报并不是稳定出现，而是随机出现在项目几乎所有种类的错误报告里。出于直觉，我认为这很可能是一个并发冲突问题：比如 Sentry 在报告上下文时出现了并发冲突。
    实验模拟  下面是一段最简单的实验代码：我们启动了两个并发的协程、分别不断地上报自己的错误，然后观察两个协程的错误上下文会不会互相干扰。
-// 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &amp;#34;1&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.SetUser(sentry.User{Username: &amp;#34;1&amp;#34;}) sentry.CaptureException(errors.New(&amp;#34;test-sentry-1&amp;#34;)) }) } }() // 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &amp;#34;2&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.SetUser(sentry.User{Username: &amp;#34;2&amp;#34;}) sentry.CaptureException(errors.New(&amp;#34;test-sentry-2&amp;#34;)) }) } }() 很快我们就会发现，在 Sentry 上报的错误中，已经随机出现了错误上下文混乱的情况。比如在下图，在代码中上报错误 test-sentry-2 附带了 {Username: &amp;quot;2&amp;quot;} 的上下文信息，但 Sentry 实际却上报了 {Username: &amp;quot;1&amp;quot;} 的上下文。很明显这个错误的上下文被其他并发协程影响了。</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  // 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &amp;#34;1&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.SetUser(sentry.User{Username: &amp;#34;1&amp;#34;}) sentry.CaptureException(errors.New(&amp;#34;test-sentry-1&amp;#34;)) }) } }() // 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &amp;#34;2&amp;#34;} go func() { for { sentry.</description>
     </item>
     
     <item>
