@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bennhuang.com/</loc>
+    <loc>/</loc>
+    <lastmod>2022-03-21T15:08:21+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-03-21T15:08:21+08:00</lastmod>
+  </url><url>
+    <loc>/posts/sentry-hub-scope/</loc>
+    <lastmod>2022-03-21T15:08:21+08:00</lastmod>
+  </url><url>
+    <loc>/posts/es-mapping/</loc>
     <lastmod>2022-02-14T12:23:53+08:00</lastmod>
   </url><url>
-    <loc>https://www.bennhuang.com/posts/</loc>
-    <lastmod>2022-02-14T12:23:53+08:00</lastmod>
+    <loc>/articles/</loc>
   </url><url>
-    <loc>https://www.bennhuang.com/posts/es-mapping/</loc>
-    <lastmod>2022-02-14T12:23:53+08:00</lastmod>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>https://www.bennhuang.com/categories/</loc>
-  </url><url>
-    <loc>https://www.bennhuang.com/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>
