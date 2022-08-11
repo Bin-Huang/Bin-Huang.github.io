@@ -6,7 +6,7 @@
     <description>Recent content in Projects on benn博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WhereMyLife</title>
       <link>/projects/wml/</link>
@@ -31,6 +31,15 @@
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>/projects/jk-broadcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make-constructor</title>
+      <link>/projects/make-constructor/</link>
+      <pubDate>Thu, 11 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/make-constructor/</guid>
       <description></description>
     </item>
     
