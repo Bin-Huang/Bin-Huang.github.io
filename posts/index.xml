@@ -6,7 +6,22 @@
     <description>Recent content in Posts on benn博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Mar 2022 15:08:21 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 14:52:21 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wire：Go最优雅的依赖注入工具</title>
+      <link>/posts/wire/</link>
+      <pubDate>Wed, 24 Aug 2022 14:52:21 +0800</pubDate>
+      
+      <guid>/posts/wire/</guid>
+      <description>导语  “成熟的工具，要学会自己写代码”。本文介绍了 Go 依赖注入工具 [[Wire]] 及其使用方法，以及在实践中积累的各种运用技巧。当代码达到一定规模后，[[Wire]] 在组件解耦、开发效率、可维护性上都能发挥很大的作用，尤其在大仓场景。
+   依赖注入  当项目变得越来越大，代码中的组件也越来越多：各种数据库、中间件的客户端连接，分层设计中的各种库表 repositories 实例、services 实例……
+这时为了代码的可维护性，应该避免组件之间的耦合。具体的做法可以遵守一个重要的设计准则：所有依赖应该在组件初始化时传递给它，这就是依赖注入（Dependency injection）。
+ Dependency injection is a standard technique for producing flexible and loosely coupled code, by explicitly providing components with all of the dependencies they need to work.
+&amp;ndash; Go 官方博客
+ 下面是个简单的例子，所有组件 Message、Greeter、Event 自身的依赖都在初始化的时候获得。
+1 2 3 4 5 6 7  func main() { message := NewMessage() greeter := NewGreeter(message) event := NewEvent(greeter) event.</description>
+    </item>
+    
     <item>
       <title>Sentry 高并发时上报异常的问题排查</title>
       <link>/posts/sentry-hub-scope/</link>
