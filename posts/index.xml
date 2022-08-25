@@ -29,10 +29,10 @@
       
       <guid>/posts/sentry-hub-scope/</guid>
       <description>我追逐一个线上问题的幽灵，直到淹没在迷惑的日志森林里。我在脑海中苦苦思索，身后一声惊奇的鸦叫，我猛然发现当作指南针的 Sentry 报告，才是真正的迷惑来源……
-发现问题 我们项目中使用 Sentry 来捕获错误，顺便会附带一些上下文，比如用户 ID、请求链路、版本环境……这些上下文在排查时非常有用，然而最近却误导了我，让我在错误的方向上花了不少时间，回过头来才发现上下文是有误的。
+   发现问题  我们项目中使用 Sentry 来捕获错误，顺便会附带一些上下文，比如用户 ID、请求链路、版本环境……这些上下文在排查时非常有用，然而最近却误导了我，让我在错误的方向上花了不少时间，回过头来才发现上下文是有误的。
 具体来说，原本是用户 A 触发了某个错误，Sentry 上报错误的上下文里却显示是用户 B 触发的。我进一步发现，这种 Sentry 误报并不是稳定出现，而是随机出现在项目几乎所有种类的错误报告里。出于直觉，我认为这很可能是一个并发冲突问题：比如 Sentry 在报告上下文时出现了并发冲突。
-实验模拟 下面是一段最简单的实验代码：我们启动了两个并发的协程、分别不断地上报自己的错误，然后观察两个协程的错误上下文会不会互相干扰。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &amp;#34;1&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.SetUser(sentry.User{Username: &amp;#34;1&amp;#34;}) sentry.CaptureException(errors.New(&amp;#34;test-sentry-1&amp;#34;)) }) } }() // 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &amp;#34;2&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.</description>
+   实验模拟  下面是一段最简单的实验代码：我们启动了两个并发的协程、分别不断地上报自己的错误，然后观察两个协程的错误上下文会不会互相干扰。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  // 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &amp;#34;1&amp;#34;} go func() { for { sentry.WithScope(func(scope *sentry.Scope) { scope.SetUser(sentry.User{Username: &amp;#34;1&amp;#34;}) sentry.CaptureException(errors.New(&amp;#34;test-sentry-1&amp;#34;)) }) } }() // 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &amp;#34;2&amp;#34;} go func() { for { sentry.</description>
     </item>
     
     <item>
@@ -41,12 +41,11 @@
       <pubDate>Mon, 14 Feb 2022 12:23:53 +0800</pubDate>
       
       <guid>/posts/es-mapping/</guid>
-      <description>前言 众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
-一个常见的错误 “发布测试环境前我竟然忘记修改 mapping 了？”
-{&amp;#34;error&amp;#34;:{&amp;#34;root_cause&amp;#34;:[{&amp;#34;type&amp;#34;:&amp;#34;illegal_argument_exception&amp;#34;,&amp;#34;reason&amp;#34;:&amp;#34;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index...... 所以我要如何快速解决这个问题呢？ 所以我要如何快速修改 mapping 中一个字段的索引类型呢？
-Reindex “即使对 reindex 烂熟于心，也需要留意停机时间和数据丢失……”
-Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。
-ElasticSearch 官方博客里曾介绍过另一种方法，只要后端业务以 alias 的方式访问 index，就可以做到完全无停机时间（Zero-Downtime）。具体思路是：首先创建一个 mapping 正确的新 index-v2，把数据 reindex 到这个新 index-v2，然后直接把 alias 重命名到这个index-v2。这样可以让后端业务直接访问到新的 index-v2，达到后端业务对 reindex 操作无感知的效果。</description>
+      <description>前言  众所周知，ElasticSearch 中的 Mapping 决定了字段的索引方式。当一个字段的索引类型确定后就无法修改。然而在日常开发中，忘记更新 mapping 是偶尔会遇到的，但修改 mapping 却是一件不容易的事情。这篇文章不仅详细讨论了 reindex 这种常见解决方法，包括 reindex 的停机和数据丢失问题、以及在各种情况下规避上述问题的思路和方法，还介绍了另外两种更加低成本的解决方法。
+   一个常见的错误  “发布测试环境前我竟然忘记修改 mapping 了？”
+{&amp;quot;error&amp;quot;:{&amp;quot;root_cause&amp;quot;:[{&amp;quot;type&amp;quot;:&amp;quot;illegal_argument_exception&amp;quot;,&amp;quot;reason&amp;quot;:&amp;quot;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index...... 所以我要如何快速解决这个问题呢？ 所以我要如何快速修改 mapping 中一个字段的索引类型呢？
+   Reindex  “即使对 reindex 烂熟于心，也需要留意停机时间和数据丢失……”
+Reindex 几乎是这类问题的标准答案，其中一个常见思路是：创建一个新的 index-tmp，然后把数据 reindex 到这个新 index-tmp，再把原来的 index 删除重建、设置正确的 mapping，最后把数据重新从 index-tmp 中 reindex 回来。很明显这个思路除了操作危险外，还会有较长的停机时间。</description>
     </item>
     
   </channel>

@@ -185,25 +185,25 @@ if (!doNotTrack) {
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &#34;1&#34;}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-1&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">		<span class="p">})</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &#34;2&#34;}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;2&#34;</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-2&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">		<span class="p">})</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 协程一：不断上报错误 test-sentry-1，并附带上下文 {Username: &#34;1&#34;}
+</span><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">})</span>
+			<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-1&#34;</span><span class="p">))</span>
+		<span class="p">})</span>
+	<span class="p">}</span>
+<span class="p">}()</span>
+<span class="c1">// 协程二：不断上报错误 test-sentry-2，并附带上下文 {Username: &#34;2&#34;}
+</span><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;2&#34;</span><span class="p">})</span>
+			<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-2&#34;</span><span class="p">))</span>
+		<span class="p">})</span>
+	<span class="p">}</span>
+<span class="p">}()</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>很快我们就会发现，在 Sentry 上报的错误中，已经随机出现了错误上下文混乱的情况。比如在下图，在代码中上报错误 <code>test-sentry-2</code> 附带了 <code>{Username: &quot;2&quot;}</code> 的上下文信息，但 Sentry 实际却上报了 <code>{Username: &quot;1&quot;}</code> 的上下文。很明显这个错误的上下文被其他并发协程影响了。</p>
 <p><img loading="lazy" 
@@ -245,12 +245,12 @@ if (!doNotTrack) {
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// WithScope 方法的使用案例
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-1&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// WithScope 方法的使用案例
+</span><span class="c1"></span><span class="nx">sentry</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">scope</span><span class="p">.</span><span class="nf">SetUser</span><span class="p">(</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">User</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">})</span>
+	<span class="nx">sentry</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;test-sentry-1&#34;</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>其中 <code>WithScope</code> 的源码实现：</p>
 <div class="highlight"><div class="chroma">
@@ -263,13 +263,13 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Sentry 的 WithScope 方法源码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">hub</span> <span class="o">*</span><span class="nx">Hub</span><span class="p">)</span> <span class="nf">WithScope</span><span class="p">(</span><span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">Scope</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">scope</span> <span class="o">:=</span> <span class="nx">hub</span><span class="p">.</span><span class="nf">PushScope</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">hub</span><span class="p">.</span><span class="nf">PopScope</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">f</span><span class="p">(</span><span class="nx">scope</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Sentry 的 WithScope 方法源码
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">hub</span> <span class="o">*</span><span class="nx">Hub</span><span class="p">)</span> <span class="nf">WithScope</span><span class="p">(</span><span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">Scope</span><span class="p">))</span> <span class="p">{</span>
+	<span class="nx">scope</span> <span class="o">:=</span> <span class="nx">hub</span><span class="p">.</span><span class="nf">PushScope</span><span class="p">()</span>
+	<span class="k">defer</span> <span class="nx">hub</span><span class="p">.</span><span class="nf">PopScope</span><span class="p">()</span>
+	<span class="nf">f</span><span class="p">(</span><span class="nx">scope</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>通过阅读源码，很明显 <code>WithScope</code> 这个方法在并发下不安全。如果一个协程用 <code>WithScope</code> 刚刚压入新层、正在编辑上下文，然后另一个协程也压入了新层，那么就会出现并发冲突，比如污染其他协程的上下文、或者用其他协程的上下文来上报自己的错误！</p>
 <h2 id="设计如此">
@@ -306,14 +306,14 @@ if (!doNotTrack) {
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">go</span> <span class="kd">func</span> <span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">hub</span> <span class="o">:=</span> <span class="nx">sentry</span><span class="p">.</span><span class="nf">CurrentHub</span><span class="p">().</span><span class="nf">Clone</span><span class="p">()</span>         <span class="c1">// 获得新 hub
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">hub</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 为新 hub 添加上下文
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">scope</span><span class="p">.</span><span class="nf">SetTag</span><span class="p">(</span><span class="s">&#34;action&#34;</span><span class="p">,</span> <span class="s">&#34;produce&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">hub</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>              <span class="c1">// 用新 hub 上报错误
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="p">}()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="k">go</span> <span class="kd">func</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="nx">hub</span> <span class="o">:=</span> <span class="nx">sentry</span><span class="p">.</span><span class="nf">CurrentHub</span><span class="p">().</span><span class="nf">Clone</span><span class="p">()</span>         <span class="c1">// 获得新 hub
+</span><span class="c1"></span>	<span class="nx">hub</span><span class="p">.</span><span class="nf">WithScope</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">scope</span> <span class="o">*</span><span class="nx">sentry</span><span class="p">.</span><span class="nx">Scope</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 为新 hub 添加上下文
+</span><span class="c1"></span>		<span class="nx">scope</span><span class="p">.</span><span class="nf">SetTag</span><span class="p">(</span><span class="s">&#34;action&#34;</span><span class="p">,</span> <span class="s">&#34;produce&#34;</span><span class="p">)</span>
+		<span class="nx">hub</span><span class="p">.</span><span class="nf">CaptureException</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>              <span class="c1">// 用新 hub 上报错误
+</span><span class="c1"></span>	<span class="p">})</span>
+<span class="p">}()</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><code>Clone()</code> 方法会引用当前 hub 的底层服务连接，并复制一份当前的上下文堆栈的拷贝，然后生成一个新的 hub 实例。因为复用了底层服务连接，很明显 hub 克隆的成本很低，可以随用随抛。<strong>因此在实践中，不管是否存在并发，上报错误时都最好克隆一下 hub 实例</strong>。</p>
 <p>这个方法可以完美地规避并发冲突问题，nice~</p>
@@ -346,7 +346,7 @@ if (!doNotTrack) {
     <div class="disqus-container">
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    window.disqus_config = function () {
+    var disqus_config = function () {
     
     
     
@@ -396,7 +396,7 @@ if (!doNotTrack) {
 
         
     </section>
-    <script defer src="/ts/features.dd8e5b18a6dda91367e396fd8dc9b9f83a1993065f709a53e056e0f2e9096ea1.js" 
+    <script defer src="/ts/features.aeccc1b543daef772e7584f28d3bc3e21c62dfd259256c435908dbe148b24c6c.js" 
     data-enable-footnotes="true"
     ></script>
 </footer>

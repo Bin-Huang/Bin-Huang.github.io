@@ -161,7 +161,7 @@ if (!doNotTrack) {
     一个常见的错误
 </h3>
 <p><em>“发布测试环境前我竟然忘记修改 mapping 了？”</em></p>
-<pre tabindex="0"><code>{&#34;error&#34;:{&#34;root_cause&#34;:[{&#34;type&#34;:&#34;illegal_argument_exception&#34;,&#34;reason&#34;:&#34;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index......
+<pre tabindex="0"><code>{&quot;error&quot;:{&quot;root_cause&quot;:[{&quot;type&quot;:&quot;illegal_argument_exception&quot;,&quot;reason&quot;:&quot;Fielddata is disabled on text fields by default. Set fielddata=true on [player_type] in order to load fielddata in memory by uninverting the inverted index......
 </code></pre><p><del>所以我要如何快速解决这个问题呢？</del>
 所以我要如何快速修改 mapping 中一个字段的索引类型呢？</p>
 <h3 id="reindex">
@@ -197,25 +197,25 @@ if (!doNotTrack) {
 </ol>
 <pre tabindex="0"><code>PUT /index-v2/_doc/_mapping
 {
-	&#34;properties&#34;: &lt;all_you_need&gt;
+	&quot;properties&quot;: &lt;all_you_need&gt;
 }
 </code></pre><ol start="2">
 <li>先“悄悄”准备老数据，比如先 reindex 某个时间点之前的老数据（比如一小时前）。</li>
 </ol>
 <pre tabindex="0"><code>POST _reindex
 {
-	&#34;source&#34;: {
-		&#34;index&#34;: &#34;index-v1&#34;,
-		&#34;query&#34;: {
-			&#34;range&#34;: {
-				&#34;created_at&#34;: {
-					&#34;lt&#34;: &lt;一个时间点&gt;
+	&quot;source&quot;: {
+		&quot;index&quot;: &quot;index-v1&quot;,
+		&quot;query&quot;: {
+			&quot;range&quot;: {
+				&quot;created_at&quot;: {
+					&quot;lt&quot;: &lt;一个时间点&gt;
 				}
 			}
 		}
 	},
-	&#34;dest&#34;: {
-		&#34;index&#34;: &#34;index-v2&#34;
+	&quot;dest&quot;: {
+		&quot;index&quot;: &quot;index-v2&quot;
 	}
 }
 </code></pre><ol start="3">
@@ -223,17 +223,17 @@ if (!doNotTrack) {
 </ol>
 <pre tabindex="0"><code>POST /_aliases
 {
-	&#34;actions&#34;: [
+	&quot;actions&quot;: [
 		{
-			&#34;remove&#34;: {
-				&#34;alias&#34;: &#34;index&#34;,
-				&#34;index&#34;: &#34;index-v1&#34;
+			&quot;remove&quot;: {
+				&quot;alias&quot;: &quot;index&quot;,
+				&quot;index&quot;: &quot;index-v1&quot;
 			}
 		},
 		{
-			&#34;add&#34;: {
-				&#34;alias&#34;: &#34;index&#34;,
-				&#34;index&#34;: &#34;index-v2&#34;
+			&quot;add&quot;: {
+				&quot;alias&quot;: &quot;index&quot;,
+				&quot;index&quot;: &quot;index-v2&quot;
 			}
 		}
 	]
@@ -243,18 +243,18 @@ if (!doNotTrack) {
 </ol>
 <pre tabindex="0"><code>POST _reindex
 {
-	&#34;source&#34;: {
-		&#34;index&#34;: &#34;index-v1&#34;,
-		&#34;query&#34;: {
-			&#34;range&#34;: {
-				&#34;created_at&#34;: {
-					&#34;gte&#34;: &lt;一个时间点&gt;
+	&quot;source&quot;: {
+		&quot;index&quot;: &quot;index-v1&quot;,
+		&quot;query&quot;: {
+			&quot;range&quot;: {
+				&quot;created_at&quot;: {
+					&quot;gte&quot;: &lt;一个时间点&gt;
 				}
 			}
 		}
 	},
-	&#34;dest&#34;: {
-		&#34;index&#34;: &#34;index-v2&#34;
+	&quot;dest&quot;: {
+		&quot;index&quot;: &quot;index-v2&quot;
 	}
 }
 </code></pre><p>这样在迁移过程中，既不需要停机，也不会丢失新数据，也不会出现长时间无法访问历史数据的问题。后端业务几乎可以访问到所有的数据，只有在第二次 reindex 期间会有极小部分数据在短时间内无法访问（不可见数据范围大约是 <code>created_at: [the_timestamp, now）</code>），但也会很快地恢复。因为数据量非常少，第二次 reindex 速度很快，等到结束后，后端业务就可以完全正常地访问到所有的数据。</p>
@@ -280,9 +280,9 @@ if (!doNotTrack) {
 </ol>
 <pre tabindex="0"><code>PUT /my-index/_doc/_mapping
 {
-  &#34;properties&#34;: {
-    &#34;new_field&#34;: {
-      &#34;type&#34;: &#34;keyword&#34;
+  &quot;properties&quot;: {
+    &quot;new_field&quot;: {
+      &quot;type&quot;: &quot;keyword&quot;
     }
   }
 }
@@ -291,12 +291,12 @@ if (!doNotTrack) {
 </ol>
 <pre tabindex="0"><code>POST /my-index/_update_by_query?conflicts=proceed
 {
-  &#34;script&#34;: {
-    &#34;source&#34;: &#34;ctx._source.new_field = ctx._source.old_field&#34;,
-    &#34;lang&#34;: &#34;painless&#34;
+  &quot;script&quot;: {
+    &quot;source&quot;: &quot;ctx._source.new_field = ctx._source.old_field&quot;,
+    &quot;lang&quot;: &quot;painless&quot;
   },
-  &#34;query&#34;: {
-    &#34;exists&#34;: { &#34;field&#34;: &#34;old_field&#34; }
+  &quot;query&quot;: {
+    &quot;exists&quot;: { &quot;field&quot;: &quot;old_field&quot; }
   }
 }
 </code></pre><ol start="3">
@@ -314,16 +314,16 @@ if (!doNotTrack) {
     </a>
     采用 multi-field
 </h3>
-<p><em>&ldquo;作为一个成熟的 DB，总是可以为一个字段建立多种索引……&rdquo;</em></p>
+<p><em>&ldquo;作为一个成熟的 DB，总是可以为一个字段建立多种索引……&quot;</em></p>
 <p>ElasticSearch 的 <code>multi-field</code> 特性，让同一个字段可以有多种不同的索引类型。我们可以利用这个特性在 mapping 中为老字段追加新的索引类型。比如这个例子：</p>
 <pre tabindex="0"><code>PUT /my-index/_doc/_mapping
 {
-  &#34;properties&#34;: {
-    &#34;company&#34;: {
-      &#34;type&#34;: &#34;keyword&#34;,
-      &#34;fields&#34;: {
-        &#34;name&#34;: {
-          &#34;type&#34;: &#34;text&#34;
+  &quot;properties&quot;: {
+    &quot;company&quot;: {
+      &quot;type&quot;: &quot;keyword&quot;,
+      &quot;fields&quot;: {
+        &quot;name&quot;: {
+          &quot;type&quot;: &quot;text&quot;
         }
       }
     }
@@ -336,12 +336,12 @@ if (!doNotTrack) {
 <pre tabindex="0"><code>// 这个更新没有任何意义，纯粹是为了触发老数据的重新索引
 POST /my-index/_update_by_query?conflicts=proceed
 {
-  &#34;script&#34;: {
-    &#34;source&#34;: &#34;ctx&#34;,
-    &#34;lang&#34;: &#34;painless&#34;
+  &quot;script&quot;: {
+    &quot;source&quot;: &quot;ctx&quot;,
+    &quot;lang&quot;: &quot;painless&quot;
   },
-  &#34;query&#34;: {
-    &#34;exists&#34;: { &#34;field&#34;: &#34;company&#34; }
+  &quot;query&quot;: {
+    &quot;exists&quot;: { &quot;field&quot;: &quot;company&quot; }
   }
 }
 </code></pre><p><strong>小结</strong></p>
@@ -398,7 +398,7 @@ POST /my-index/_update_by_query?conflicts=proceed
     <div class="disqus-container">
     <div id="disqus_thread"></div>
 <script type="application/javascript">
-    window.disqus_config = function () {
+    var disqus_config = function () {
     
     
     
@@ -448,7 +448,7 @@ POST /my-index/_update_by_query?conflicts=proceed
 
         
     </section>
-    <script defer src="/ts/features.dd8e5b18a6dda91367e396fd8dc9b9f83a1993065f709a53e056e0f2e9096ea1.js" 
+    <script defer src="/ts/features.aeccc1b543daef772e7584f28d3bc3e21c62dfd259256c435908dbe148b24c6c.js" 
     data-enable-footnotes="true"
     ></script>
 </footer>
