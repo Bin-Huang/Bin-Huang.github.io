@@ -8,39 +8,21 @@
     <language>zh-cn</language>
     <lastBuildDate>Thu, 11 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>WhereMyLife</title>
-      <link>/projects/wml/</link>
-      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/wml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WhereMyLife Blog</title>
-      <link>/projects/wml-blog/</link>
-      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/wml-blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>即刻镇广播</title>
-      <link>/projects/jk-broadcast/</link>
-      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/jk-broadcast/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>newc</title>
+      <title>Newc</title>
       <link>/projects/make-constructor/</link>
       <pubDate>Thu, 11 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>/projects/make-constructor/</guid>
-      <description></description>
+      <description>一个命令行工具，用来自动生成 Go 结构体的构造器代码</description>
+    </item>
+    
+    <item>
+      <title>即刻镇广播(DEMO)</title>
+      <link>/projects/jk-broadcast/</link>
+      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/jk-broadcast/</guid>
+      <description>不算作品，只是开发了两个晚上的“玩具项目”，但出乎意外的有趣～</description>
     </item>
     
     <item>
@@ -49,7 +31,43 @@
       <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/projects/prray/</guid>
-      <description></description>
+      <description>一个 JavaScript/TypeScript 工具库，提供 “Promisified Array” 的基础工具</description>
+    </item>
+    
+    <item>
+      <title>WhereMyLife</title>
+      <link>/projects/wml/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/wml/</guid>
+      <description>一个在线服务，用来给 Kindle 订阅 RSS，可以定时收到像报纸杂志一样的文章合集。它曾是我大学时期的⭐骄傲⭐</description>
+    </item>
+    
+    <item>
+      <title>WhereMyLife Blog</title>
+      <link>/projects/wml-blog/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/wml-blog/</guid>
+      <description>这里记录了 WhereMyLife 的前世今生和更新记录</description>
+    </item>
+    
+    <item>
+      <title>NodeSpider</title>
+      <link>/projects/nodespider/</link>
+      <pubDate>Thu, 01 Jan 1970 08:33:36 +0800</pubDate>
+      
+      <guid>/projects/nodespider/</guid>
+      <description>一个 Node.js 爬虫框架，当时我花了太多时间在这上面……</description>
+    </item>
+    
+    <item>
+      <title>智子计算器</title>
+      <link>/projects/zhizi/</link>
+      <pubDate>Thu, 01 Jan 1970 08:33:35 +0800</pubDate>
+      
+      <guid>/projects/zhizi/</guid>
+      <description>远古早期作品，在大学寝室开发的高级计算器App，特点是支持矩阵计算</description>
     </item>
     
   </channel>
