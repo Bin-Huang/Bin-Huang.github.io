@@ -43,9 +43,9 @@
   </url><url>
     <loc>/categories/</loc>
   </url><url>
-    <loc>/projects/</loc>
-  </url><url>
     <loc>/tags/</loc>
+  </url><url>
+    <loc>/projects/</loc>
   </url><url>
     <loc>/articles/</loc>
   </url>
