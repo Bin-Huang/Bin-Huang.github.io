@@ -40,13 +40,13 @@
       <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/projects/wml/</guid>
-      <description>一个在线服务，用来给 Kindle 订阅 RSS，可以定时收到像报纸杂志一样的文章合集。它曾是我大学时期的⭐骄傲⭐</description>
+      <description>一个在线服务，用来给 Kindle 订阅 RSS，可以定时收到像报纸杂志一样的文章合集</description>
     </item>
     
     <item>
       <title>WhereMyLife Blog</title>
       <link>/projects/wml-blog/</link>
-      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
       
       <guid>/projects/wml-blog/</guid>
       <description>这里记录了 WhereMyLife 的前世今生和更新记录</description>
@@ -55,7 +55,7 @@
     <item>
       <title>NodeSpider</title>
       <link>/projects/nodespider/</link>
-      <pubDate>Thu, 01 Jan 1970 08:33:36 +0800</pubDate>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>/projects/nodespider/</guid>
       <description>一个 Node.js 爬虫框架，当时我花了太多时间在这上面……</description>
@@ -64,7 +64,7 @@
     <item>
       <title>智子计算器</title>
       <link>/projects/zhizi/</link>
-      <pubDate>Thu, 01 Jan 1970 08:33:35 +0800</pubDate>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>/projects/zhizi/</guid>
       <description>远古早期作品，在大学寝室开发的高级计算器App，特点是支持矩阵计算</description>
