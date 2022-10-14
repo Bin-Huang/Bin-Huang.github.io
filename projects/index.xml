@@ -8,6 +8,15 @@
     <language>zh-cn</language>
     <lastBuildDate>Thu, 11 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>WhereMyLife</title>
+      <link>/projects/wml/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/wml/</guid>
+      <description>一个在线服务，用来给 Kindle 订阅 RSS，可以定时收到像报纸杂志一样的文章合集</description>
+    </item>
+    
+    <item>
       <title>Newc</title>
       <link>/projects/make-constructor/</link>
       <pubDate>Thu, 11 Aug 2022 00:00:00 +0000</pubDate>
@@ -32,15 +41,6 @@
       
       <guid>/projects/prray/</guid>
       <description>一个 JavaScript/TypeScript 工具库，提供 “Promisified Array” 的基础工具</description>
-    </item>
-    
-    <item>
-      <title>WhereMyLife</title>
-      <link>/projects/wml/</link>
-      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/wml/</guid>
-      <description>一个在线服务，用来给 Kindle 订阅 RSS，可以定时收到像报纸杂志一样的文章合集</description>
     </item>
     
     <item>
